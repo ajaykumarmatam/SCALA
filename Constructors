@@ -1,0 +1,227 @@
+
+
+                                                  Constructors in scala
+
+
+
+Whenever we create an object constructor will be called .
+
+
+
+
+
+
+
+
+
+Types of Constructors 
+
+
+1)Primary Constructors 
+
+2)Auxiliary constructors 
+
+
+
+
+
+
+
+
+
+1)Primary Constructors 
+
+Programe 1
+
+
+class classdemo
+{
+
+ var x =10
+ var y=20
+
+ def addsum():Int={
+   x+y
+ }
+ var z =addsum()
+ println(z)
+}
+
+
+object constrDemo {
+
+ def main(args: Array[String]):Unit ={
+
+   var name1 = new classdemo   //creating an object - instance of class -contrsuctor will execute everything in class .
+
+
+ }
+}
+
+
+Val demoObject1 = new democlass  //creating an object - instance of class -contrsuctor will execute everything in class .
+
+}
+
+================================================================
+
+
+
+
+
+
+
+
+
+Programe 2: parameterizing constructor (Primary constructor )
+
+class classdemo(val a:Int,val b:Double,val c:String)
+{
+
+ var x =a
+ var y=b
+ var z=c
+
+ println(s"x = ${x} and y = ${y} and z =${z}")
+}
+
+
+object constrDemo {
+
+ def main(args: Array[String]):Unit ={
+
+   var name1 = new classdemo(2,5,"hello word")
+     var name2 = new classdemo(10,15,"hello word")
+
+ }
+}
+
+
+======================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//program3 - default parameters in constructors [primary construtors]
+
+class classdemo(val a:Int=10,val b:Double=19.5,val c:String="hello word deafult")
+{
+
+ var x =a
+ var y=b
+ var z=c
+
+ def addsum():Double={
+   x+y
+ }
+
+ println(s"x = ${x} and y = ${y} and z =${z}")
+}
+
+
+object constrDemo {
+
+ def main(args: Array[String]):Unit ={
+
+   var name1 = new classdemo(2,5,"hello word")
+   var name2 = new classdemo()
+   var name3 = new classdemo(3)
+  // var name4 = new classdemo("hello word") //we have to specify paramters in correct sequence .for out of sequence see belwo line
+   var name5 = new classdemo(c="hello word_again")
+   var name6 = new classdemo(c="hello word_again",b=5,a=1)
+ }
+}
+
+
+=======================================================================
+
+
+2)Auxiliary constructors 
+
+  
+  .>>In a given class we can have only one primary constructors 
+
+  >> In a given class we can have multiple auxiliary  constructors 
+
+
+Defining auxiliary constructors 
+
+By using this 
+
+
+Zero parameters  auxiliary constructors 
+
+def  this()
+{
+
+}
+
+
+Parameterize auxiliary constructors 
+
+def  this(a:int)
+{
+
+}
+
+
+
+//program1 - auxiliry  constructors
+
+class classdemo(val a:Int=10,val b:Double=19.5,val c:String="hello word deafult")
+{
+
+ var x =a
+ var y=b
+ var z=c
+
+ println(s" primary contructors says x = ${x} and y = ${y} and z =${z}")
+
+ def this()
+   {
+     this(2,3,"hello word from auxiliry")
+     println("came into auxiliry constructors")
+   }
+
+ def this(a:Int)
+ {
+   this(a,3,"hello word from auxiliry")
+   println("came into auxiliry constructors")
+ }
+
+ def this(a:Int,b:Double)
+ {
+   this(a,b,"hello word from auxiliry")
+   println("came into auxiliry constructors")
+ }
+}
+
+
+object constrDemo {
+
+ def main(args: Array[String]):Unit ={
+
+   var name1 = new classdemo(2,5,"hello word")
+   var name2 = new classdemo()
+   var name3 = new classdemo(10,20)
+   var name4 = new classdemo(20,30)
+
+ }
+}
+
+
+========================================================================
+
